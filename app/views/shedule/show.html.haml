@@ -1,0 +1,30 @@
+.well
+  - if @shedule.empty?
+    Nothing found
+  - else
+    .row
+      .span2
+        Time
+      .span1
+        Room
+      .span1
+        Groups
+      .span2
+        Teacher
+      .span5
+        Subject
+
+    - @shedule.each do |item|
+      .row
+        .span2
+          = item[:time].strftime '%d.%m.%Y %H:%M'
+        .span1
+          = item[:room].map(&:name).join('; ')
+        .span1
+          = item[:groups].map(&:name).join('; ')
+        .span2
+          = item[:teacher].name
+        .span5
+          = item[:name]
+          = item[:comment]
+          = item[:class]

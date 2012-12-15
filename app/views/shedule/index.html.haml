@@ -1,0 +1,16 @@
+%h1
+  = @group.name
+
+
+.control-group
+  .btn-group
+    %button.btn.get_shedule_btn{ data: { value: "today" } }
+      Today
+    %button.btn.get_shedule_btn{ data: { value: "week" } }
+      Week
+    %button.btn.get_shedule_btn{ data: { value: "month" } }
+      Month
+
+
+#shedule
+  = render template: "shedule/show"
