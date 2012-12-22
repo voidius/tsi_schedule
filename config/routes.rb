@@ -1,7 +1,11 @@
 TsiShedule::Application.routes.draw do
 
-  resources :login, only: :index
-  resources :shedule, only: [:index, :show]
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users, :only => [:index, :destroy]
+  # root :to => 'users#index'
+
+  # resources :login, only: :index
+  resources :schedule, only: [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,7 +56,8 @@ TsiShedule::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'shedule#index'
+  root :to => 'schedule#index'
+
 
   # See how all your routes lay out with "rake routes"
 

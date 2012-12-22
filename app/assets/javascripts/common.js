@@ -4,11 +4,11 @@ $(function(){
 
 	var obj = APP("common", {
 
-		update_shedule: function(e) {
+		update_schedule: function(e) {
 			var $this = $(e.target);
-			var shedule_for = $this.attr('data-value');
-			$.get('/shedule/'+shedule_for, null, function(response) {
-				$('#shedule').html(response);
+			var schedule_for = $this.attr('data-value');
+			$.get('/schedule/'+schedule_for, null, function(response) {
+				$('#schedule').html(response);
 			});
 		}
 
@@ -17,7 +17,7 @@ $(function(){
 
 
 	$(function($){
-		$('.get_shedule_btn').click(obj.update_shedule);
+		$('.get_schedule_btn').click(obj.update_schedule);
 	});
 
 

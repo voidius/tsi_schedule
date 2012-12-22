@@ -1,8 +1,8 @@
 .well
-  - if @shedule.empty?
+  - if @schedule.empty?
     Nothing found
   - else
-    .row
+    .row.title_line
       .span2
         Time
       .span1
@@ -14,7 +14,7 @@
       .span5
         Subject
 
-    - @shedule.each do |item|
+    - @schedule.each do |item|
       .row
         .span2
           = item[:time].strftime '%d.%m.%Y %H:%M'

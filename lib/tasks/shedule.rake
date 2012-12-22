@@ -1,4 +1,4 @@
-namespace :shedule do
+namespace :schedule do
 
 
 

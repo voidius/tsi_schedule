@@ -1,4 +1,4 @@
-class SheduleController < ApplicationController
+class ScheduleController < ApplicationController
 
 
 
@@ -9,12 +9,12 @@ class SheduleController < ApplicationController
   def index
     yesterday = Date.yesterday.to_time.to_i
     nextweek = (Date.today + 7).to_time.to_i
-    @shedule = Shedule::Grabber.get_events({from: yesterday, to: nextweek, groups: @group.code})
+    @schedule = Schedule::Grabber.get_events({from: yesterday, to: nextweek, groups: @group.code})
   end
 
   def show
-    shedule_for = params[:id] || ''
-    case shedule_for
+    schedule_for = params[:id] || ''
+    case schedule_for
       when 'today'
         to = (Date.today + 1).to_time.to_i
       when 'week'
@@ -26,7 +26,7 @@ class SheduleController < ApplicationController
         return
     end
     from = Date.today.to_time.to_i
-    @shedule = Shedule::Grabber.get_events({from: from, to: to, groups: @group.code})
+    @schedule = Schedule::Grabber.get_events({from: from, to: to, groups: @group.code})
 
     if request.xhr?
       render :show, layout: false

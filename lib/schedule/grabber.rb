@@ -1,4 +1,4 @@
-module Shedule
+module Schedule
 
 
 

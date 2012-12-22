@@ -45,3 +45,7 @@ group :development do
   gem 'awesome_print'
   gem 'thin'
 end
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
