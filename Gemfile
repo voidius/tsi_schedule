@@ -46,6 +46,12 @@ group :development do
   gem 'thin'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+end
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
