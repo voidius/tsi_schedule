@@ -1,30 +1,36 @@
-.well
-  - if @schedule.empty?
-    Nothing found
-  - else
-    .row.title_line
-      .span2
-        Time
-      .span1
-        Room
-      .span1
-        Groups
-      .span2
-        Teacher
-      .span5
-        Subject
 
-    - @schedule.each do |item|
-      .row
-        .span2
-          = item[:time].strftime '%d.%m.%Y %H:%M'
-        .span1
-          = item[:room].map(&:name).join('; ')
-        .span1
-          = item[:groups].map(&:name).join('; ')
-        .span2
-          = item[:teacher].name
-        .span5
-          = item[:name]
-          = item[:comment]
-          = item[:class]
+- if @schedule.empty?
+  Nothing found
+- else
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th
+          Time
+        %th
+          Room
+        %th.hidden-phone
+          Groups
+        %th
+          Teacher
+        %th
+          Subject
+
+    %tbody
+      - @schedule.each do |item|
+        %tr
+          %td
+            %span.hidden-phone
+              = item[:time].strftime '%d.%m.%Y %H:%M'
+            %span.hidden-desktop
+              = item[:time].strftime '%d.%m.%y %H:%M'
+          %td
+            = item[:room].map(&:name).join('; ')
+          %td.hidden-phone
+            = item[:groups].map(&:name).join('; ')
+          %td
+            = item[:teacher].name
+          %td
+            = item[:name]
+            = item[:comment]
+            = item[:class]
