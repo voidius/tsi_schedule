@@ -2,7 +2,7 @@ class ScheduleController < ApplicationController
 
 
 
-  before_filter :set_temporarty_attributes
+  before_filter :set_temporary_attributes
 
 
 
@@ -39,7 +39,7 @@ class ScheduleController < ApplicationController
 
 
 
-    def set_temporarty_attributes
+    def set_temporary_attributes
       @group = Group.find_by_name("4001BN")
     end
 
