@@ -13,7 +13,7 @@ class ScheduleController < ApplicationController
   end
 
   def show
-    schedule_for = params[:id] || ''
+    schedule_for = params[:period] || ''
     case schedule_for
       when 'today'
         to = (Date.today + 1).to_time.to_i
@@ -21,16 +21,17 @@ class ScheduleController < ApplicationController
         to = (Date.today + 7).to_time.to_i
       when 'month'
         to = (Date.today + 30).to_time.to_i
+      when 'semester'
+        from = Date.new(2012,9,1).to_time.to_i
+        to = Date.new(2013,1,31).to_time.to_i
       else
         redirect_to action: :index
         return
     end
-    from = Date.today.to_time.to_i
+    from = Date.today.to_time.to_i unless from.present?
     @schedule = Schedule::Grabber.get_events({from: from, to: to, groups: @group.code})
 
-    if request.xhr?
-      render :show, layout: false
-    end
+    render layout: false if request.xhr?
   end
 
 

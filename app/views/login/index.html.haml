@@ -1,3 +1,3 @@
-%h1
-  Hello
-
+= form_tag schedule_path, method: 'GET', class: 'form-horizontal well' do
+  = text_field_tag :group, nil, placeholder: 'Enter group', class: 'input-medium'
+  = submit_tag 'Go', url: schedule_path, class: 'btn btn-primary'

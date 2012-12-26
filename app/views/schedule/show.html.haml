@@ -2,19 +2,24 @@
 - if @schedule.empty?
   Nothing found
 - else
-  %table.table.table-striped.table-bordered
+  %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
         %th
-          Time
+          %h4
+            Time
         %th
-          Room
+          %h4
+            Room
         %th.hidden-phone
-          Groups
+          %h4
+            Groups
         %th
-          Teacher
+          %h4
+            Teacher
         %th
-          Subject
+          %h4
+            Subject
 
     %tbody
       - @schedule.each do |item|
